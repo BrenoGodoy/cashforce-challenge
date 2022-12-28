@@ -10,18 +10,23 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nDup: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       dVenc: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       vDup: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       availableToMarket: {
+        defaultValue: 1,
         type: Sequelize.INTEGER
       },
       orderId: {
+        defaultValue: null,
         type: Sequelize.INTEGER
       },
       createdAt: {

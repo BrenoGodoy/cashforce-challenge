@@ -10,9 +10,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       cnpj: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       companyType: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
