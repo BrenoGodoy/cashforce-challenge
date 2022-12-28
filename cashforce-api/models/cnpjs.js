@@ -14,9 +14,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   cnpjs.init({
-    id: DataTypes.INTEGER,
-    cnpj: DataTypes.STRING,
-    companyType: DataTypes.STRING
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    cnpj: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    companyType: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
   }, {
     sequelize,
     modelName: 'cnpjs',

@@ -14,12 +14,32 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   orderportions.init({
-    id: DataTypes.INTEGER,
-    nDup: DataTypes.STRING,
-    dVenc: DataTypes.STRING,
-    vDup: DataTypes.STRING,
-    availableToMarket: DataTypes.INTEGER,
-    orderId: DataTypes.INTEGER
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    nDup: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    dVenc: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    vDup: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    availableToMarket: {
+      defaultValue: 1,
+      type: DataTypes.INTEGER
+    },
+    orderId: {
+      defaultValue: null,
+      type: DataTypes.INTEGER
+    }
   }, {
     sequelize,
     modelName: 'orderportions',

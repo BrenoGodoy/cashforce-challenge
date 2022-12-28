@@ -14,15 +14,44 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   users.init({
-    id: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    phoneNumber: DataTypes.STRING,
-    mobile: DataTypes.STRING,
-    departament: DataTypes.STRING,
-    verificationCode: DataTypes.STRING,
-    emailChecked: DataTypes.INTEGER,
-    cashforceAdm: DataTypes.INTEGER
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    name: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    email: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    phoneNumber: {
+      defaultValue: null,
+      type: DataTypes.STRING
+    },
+    mobile: {
+      defaultValue: null,
+      type: DataTypes.STRING
+    },
+    departament: {
+      defaultValue: null,
+      type: DataTypes.STRING
+    },
+    verificationCode: {
+      defaultValue: null,
+      type: DataTypes.STRING
+    },
+    emailChecked: {
+      defaultValue: 0,
+      type: DataTypes.INTEGER
+    },
+    cashforceAdm: {
+      defaultValue: 0,
+      type: DataTypes.INTEGER
+    },
   }, {
     sequelize,
     modelName: 'users',
