@@ -25,7 +25,15 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    },
+    {
+      uniqueKeys: {
+        Items_unique: {
+          fields: ['cnpj']
+        }
+      }
+    }
+    );
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('cnpjs');

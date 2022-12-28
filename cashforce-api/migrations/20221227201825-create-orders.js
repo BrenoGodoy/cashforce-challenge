@@ -97,7 +97,15 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    },
+    {
+      uniqueKeys: {
+        Items_unique: {
+          fields: ['orderNfId', 'orderPath', 'orderFileName', 'orderOriginalName']
+        }
+      }
+    }
+    );
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('orders');
