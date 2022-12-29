@@ -10,10 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.hasMany(models.buyers, { foreignKey: 'cnpjId', as: 'cnpj' });
-      this.hasMany(models.orders, { foreignKey: 'cnpjId', as: 'cnpj' });
-      this.hasMany(models.providers, { foreignKey: 'cnpjId', as: 'cnpj' });
-      this.hasMany(models.sponsors, { foreignKey: 'cnpjId', as: 'cnpj' });
+      this.hasMany(models.buyers, { foreignKey: 'cnpjId', as: 'cnpjBuyers' });
+      this.hasMany(models.orders, { foreignKey: 'cnpjId', as: 'cnpjOrders' });
+      this.hasMany(models.providers, { foreignKey: 'cnpjId', as: 'cnpjProviders' });
+      this.hasMany(models.sponsors, { foreignKey: 'cnpjId', as: 'cnpjSponsors' });
     }
   }
   cnpjs.init({
