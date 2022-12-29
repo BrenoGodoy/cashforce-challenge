@@ -11,6 +11,7 @@ module.exports = {
       },
       cnpj: {
         allowNull: false,
+        unique: true,
         type: Sequelize.STRING
       },
       companyType: {
@@ -25,15 +26,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    },
-    {
-      uniqueKeys: {
-        Items_unique: {
-          fields: ['cnpj']
-        }
-      }
-    }
-    );
+    },);
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('cnpjs');

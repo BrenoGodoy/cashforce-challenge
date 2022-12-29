@@ -11,6 +11,7 @@ module.exports = {
       },
       orderNfId: {
         allowNull: false,
+        unique: true,
         type: Sequelize.STRING
       },
       orderNumber: {
@@ -19,14 +20,17 @@ module.exports = {
       },
       orderPath: {
         defaultValue: null,
+        unique: true,
         type: Sequelize.STRING
       },
       orderFileName: {
         defaultValue: null,
+        unique: true,
         type: Sequelize.STRING
       },
       orderOriginalName: {
         defaultValue: null,
+        unique: true,
         type: Sequelize.STRING
       },
       emissionDate: {
@@ -97,15 +101,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    },
-    {
-      uniqueKeys: {
-        Items_unique: {
-          fields: ['orderNfId', 'orderPath', 'orderFileName', 'orderOriginalName']
-        }
-      }
-    }
-    );
+    },);
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('orders');
