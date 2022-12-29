@@ -10,13 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.belongsToMany(models.cnpjs, { foreignKey: 'cnpjId', as: 'cnpj' });
     }
   }
   buyers.init({
     id: {
       allowNull: false,
-      // primaryKey: true,
+      autoIncrement: true,
+      primaryKey: true,
       type: DataTypes.INTEGER
     },
     name: {
@@ -97,6 +98,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     cnpjId: {
       type: DataTypes.INTEGER,
+      foreignKey: true,
       defaultValue: null
     },
     confirm: {
