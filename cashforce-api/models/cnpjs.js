@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     cnpj: {
       allowNull: false,
+      unique: true,
       type: DataTypes.STRING
     },
     companyType: {

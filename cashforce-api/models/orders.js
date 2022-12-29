@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     orderNfId: {
       allowNull: false,
+      unique: true,
       type: DataTypes.STRING
     },
     orderNumber: {
@@ -30,14 +31,17 @@ module.exports = (sequelize, DataTypes) => {
     },
     orderPath: {
       defaultValue: null,
+      unique: true,
       type: DataTypes.STRING
     },
     orderFileName: {
       defaultValue: null,
+      unique: true,
       type: DataTypes.STRING
     },
     orderOriginalName: {
       defaultValue: null,
+      unique: true,
       type: DataTypes.STRING
     },
     emissionDate: {
