@@ -3,23 +3,41 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+    
+    await queryInterface.bulkInsert('providers', [{
+      id: 1,
+      name: 'CEDENTE 002',
+      tradingName: 'CEDENTE 002 LTDA',
+      createdAt: '2020-10-29 21:22:21',
+      updatedAt: '2020-10-29 21:22:22',
+      // cashforceTax,
+      // responsibleName,
+      // responsibleEmail,
+      // responsiblePosition,
+      // responsiblePhone,
+      // responsibleMobile,
+      // website,
+      // postalCode,
+      // address,
+      // number,
+      // complement,
+      // neighborhood,
+      // city,
+      // state,
+      // bank,
+      // bankAgency,
+      // account,
+      // documents,
+      // phoneNumber,
+      // situation,
+      // situationDate,
+      cnpjId: 2,
+      // email,
+    }], {});
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    
+    await queryInterface.bulkDelete('providers', null, {}); 
   }
 };
