@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.belongsTo(models.cnpjs, { foreignKey: 'cnpjId', as: 'cnpj' });
+      this.hasMany(models.orders, { foreignKey: 'buyerId', as: 'buyer' });
     }
   }
   buyers.init({
