@@ -1,47 +1,70 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <header class="header">
+    <div class="top">
+      <div class="logo">
+        <img src="./assets/sider-fornecedor.png" class="cashforce-logo">
+      </div>
+      <div class="notas-fiscais">
+        <img src="./assets/menu-item.png">
+      </div>
     </div>
   </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+.header {
+  background-color: #E5E5E5;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 288px;
+  height: 900px;
+  left: 0px;
+  top: 0px;
 }
 
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+
+  position: absolute;
+  width: 288px;
+  height: 144px;
+  left: 0px;
+  top: 0px;
+}
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 288px;
+  height: 80px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.cashforce-logo {
+  width: 160px;
+  margin: 20px;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.notas-fiscais {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+  width: 288px;
+  height: 64px;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 }
 </style>
