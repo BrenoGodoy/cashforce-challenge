@@ -1,4 +1,9 @@
 <script setup>
+  import { Suspense } from 'vue';
+  
+  const axiosGet = await axios.get("http://localhost:3001/orders");
+  const apiData = await axiosGet.json();
+    
 </script>
 
 <template>
@@ -34,6 +39,9 @@
         </tr>
       </tbody>
     </table>
+    <Suspense>
+      <div>{{ apiData }}</div>
+    </Suspense>
   </div>
 </template>
 
