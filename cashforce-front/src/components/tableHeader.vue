@@ -1,10 +1,12 @@
 <script setup>
+  import dataTableVue from './dataTable.vue';
 </script>
 
 <template>
   <div class="table-header">
     <img src="../assets/header.png" />
   </div>
+  <dataTableVue />
 </template>
 
 <style scoped>
