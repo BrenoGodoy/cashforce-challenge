@@ -1,14 +1,23 @@
-<script setup>
-  import { Suspense } from 'vue';
-  
-  const axiosGet = await axios.get("http://localhost:3001/orders");
-  const apiData = await axiosGet.json();
-    
+<script>
+  import listOrders from '../services/listOrders';
+
+  export default {
+    data(){
+      return {
+        orders: []
+      }
+    },
+    mounted() {
+      listOrders.list().then(res => {
+        this.orders = res.data;
+      })
+    }
+  }
 </script>
 
 <template>
-  <div class="table">
-    <table class="tr">
+  <div>
+    <table>
       <thead>
         <tr>
           <th>
@@ -32,43 +41,91 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr v-for="order of orders" :key="order.id">
           <td>
-            
+            1234
+          </td>
+          <td>
+            buyers.id
+          </td>
+          <td>
+            providers.id
+          </td>
+          <td>
+            {{ new Date(order.emissionDate).toLocaleDateString('pt-BR') }}
+          </td>
+          <td class="value">
+            {{ order.value }}
+          </td>
+          <td v-if="order.orderStatusBuyer === '0'">
+             PENDENTE
+          </td>
+          <td v-else>
+            RECEBIDO
           </td>
         </tr>
       </tbody>
     </table>
-    <Suspense>
-      <div>{{ apiData }}</div>
-    </Suspense>
   </div>
 </template>
 
 <style scoped>
-.table {
+table {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0px;
   gap: 16px;
-
+  border-collapse: collapse;
   position: absolute;
-  width: 1177px;
+  width: 800px;
   height: 214px;
-  left: 336px;
+  left: 310px;
   top: 176px;
 }
 
-.tr {
-  width: 800px;
+th {
+  width: 820px;
   height: 22px;
-  left: -237px;
-
-  /* Inside auto layout */
+  left: 5px;
+  text-align: left;
 
   flex: none;
   order: 0;
   flex-grow: 0;
 }
+
+td {
+  box-sizing: border-box;
+
+  width: 800px;
+  height: 48px;
+  left: 0px;
+  text-align: center;
+  /* P. White / 1
+
+  Primary palette
+  */
+  background: #FFFFFF;
+  /* N. Mid / 4 */
+
+  /* border: 1px solid #DFE2EB;
+  border-radius: 6px; */
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+.value {
+  color: #00AD8C;
+}
+
+tbody tr {
+  box-shadow: 0 0 4px #ccc;
+  border: 1px solid #DFE2EB;
+  border-radius: 6px;
+}
+
 </style>
