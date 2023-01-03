@@ -1,6 +1,6 @@
 <script>
   import apiCall from '../services/apiCalls';
-
+  
   export default {
     data(){
       return {
@@ -9,16 +9,22 @@
         provider: ''
       }
     },
+    methods: {
+      getBuyerById(id){
+        apiCall.buyersById(id).then(res => this.buyer = res);
+
+        return this.buyer;
+      },
+      getProviderById(id){
+        apiCall.providersById(id).then(res => this.provider = res);
+
+        return this.provider;
+      }
+    },
     mounted() {
       apiCall.list().then(res => {
         this.orders = res.data;
       })
-      apiCall.buyersById(1).then(res => {
-        this.buyer = res;
-      });
-      apiCall.providersById(1).then(res => {
-        this.provider = res;
-      });
     }
   }
 </script>
@@ -54,10 +60,10 @@
             1234
           </td>
           <td>
-            {{ buyer }}
+            {{ getBuyerById(order.buyerId) }}
           </td>
           <td>
-            {{ provider }}
+            {{ getProviderById(order.providerId) }}
           </td>
           <td>
             {{ new Date(order.emissionDate).toLocaleDateString('pt-BR') }}
