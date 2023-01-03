@@ -1,5 +1,5 @@
 
-# cashforce challenge
+# Cashforce challenge
 
 Um desafio técnico para o processo seletivo da Cashforce
 
