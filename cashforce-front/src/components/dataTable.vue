@@ -62,8 +62,11 @@
           <td>
             {{ new Date(order.emissionDate).toLocaleDateString('pt-BR') }}
           </td>
-          <td class="green">
-            {{ order.value }}
+          <td v-if="order.value === ''" class="green">
+            {{ `R$ 00000` }}
+          </td>
+          <td v-else class="green">
+            {{ `R$ ${order.value}` }}
           </td>
           <td v-if="order.orderStatusBuyer === '0'" class="green">
              PENDENTE
