@@ -54,14 +54,19 @@
           <td>
             {{ new Date(order.emissionDate).toLocaleDateString('pt-BR') }}
           </td>
-          <td class="value">
+          <td class="green">
             {{ order.value }}
           </td>
-          <td v-if="order.orderStatusBuyer === '0'">
+          <td v-if="order.orderStatusBuyer === '0'" class="green">
              PENDENTE
           </td>
-          <td v-else>
+          <td v-else class="green">
             RECEBIDO
+          </td>
+          <td>
+            <button>
+              Dados do cedente
+            </button>
           </td>
         </tr>
       </tbody>
@@ -85,9 +90,9 @@ table {
 }
 
 th {
-  width: 820px;
+  width: 120px;
   height: 22px;
-  left: 5px;
+  left: -15px;
   text-align: left;
 
   flex: none;
@@ -98,9 +103,9 @@ th {
 td {
   box-sizing: border-box;
 
-  width: 800px;
+  width: 150px;
   height: 48px;
-  left: 0px;
+  left: 10px;
   text-align: center;
   /* P. White / 1
 
@@ -118,7 +123,7 @@ td {
   order: 2;
   flex-grow: 0;
 }
-.value {
+.green {
   color: #00AD8C;
 }
 
@@ -126,6 +131,30 @@ tbody tr {
   box-shadow: 0 0 4px #ccc;
   border: 1px solid #DFE2EB;
   border-radius: 6px;
+}
+
+button {
+  /* botoes-principais */
+
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 29px;
+
+  position: absolute;
+  width: 165px;
+  height: 32px;
+  left: 0px;
+  top: 8px;
+
+  /* P. Blue / 2 */
+  border: 1px solid #CAD3FF;
+  border-radius: 24px;
 }
 
 </style>
