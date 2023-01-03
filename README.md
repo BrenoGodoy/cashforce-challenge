@@ -18,16 +18,17 @@ Entre no diretório do projeto
   cd cashforce-challenge
 ```
 
-Instale as dependências
-
-```bash
-  npm install
-```
 Navegue para a pasta do Back-End
 
 ```bash
   cd cashforce-api
 ```
+Instale as dependências
+
+```bash
+  npm install
+```
+
 Crie o Banco de Dados
 
 ```bash
