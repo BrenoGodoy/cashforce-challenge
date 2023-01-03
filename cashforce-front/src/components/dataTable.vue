@@ -1,16 +1,24 @@
 <script>
-  import listOrders from '../services/listOrders';
+  import apiCall from '../services/apiCalls';
 
   export default {
     data(){
       return {
-        orders: []
+        orders: [],
+        buyer: '',
+        provider: ''
       }
     },
     mounted() {
-      listOrders.list().then(res => {
+      apiCall.list().then(res => {
         this.orders = res.data;
       })
+      apiCall.buyersById(1).then(res => {
+        this.buyer = res;
+      });
+      apiCall.providersById(1).then(res => {
+        this.provider = res;
+      });
     }
   }
 </script>
@@ -46,10 +54,10 @@
             1234
           </td>
           <td>
-            buyers.id
+            {{ buyer }}
           </td>
           <td>
-            providers.id
+            {{ provider }}
           </td>
           <td>
             {{ new Date(order.emissionDate).toLocaleDateString('pt-BR') }}
